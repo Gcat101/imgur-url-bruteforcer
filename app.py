@@ -1,6 +1,4 @@
-import urllib.request 
-import json
-import random 
+import requests
 
 url = input('Input link (the last part): ')
 url = url.lower()
@@ -37,76 +35,64 @@ posurls = (permute(url))
 for urltry in posurls:
 
     if (mode == 'gallery'):
-        try:
-            with urllib.request.urlopen("https://api.imgur.com/post/v1/posts/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Ctags%2Caccount%2Cadconfig%2Cpromoted") as link:
-                data = json.loads(url.read().decode())
-        except urllib.error.HTTPError:
+        page = requests.get("https://api.imgur.com/post/v1/posts/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Ctags%2Caccount%2Cadconfig%2Cpromoted")
+        if (page.status_code == 404):
             if (printfail == 'y'):
                 print(f'{urltry} - Failed')
-        except AttributeError:
+        else:
             print(f'{urltry} - Success!')
             truelink = f'\n https://imgur.com/gallery/{urltry} is the right url!'
             correcturl = True
             break
 
     elif (mode == 'a'):
-        try:
-            with urllib.request.urlopen("https://api.imgur.com/post/v1/albums/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount") as link:
-                data = json.loads(url.read().decode())
-        except urllib.error.HTTPError:
+        page("https://api.imgur.com/post/v1/albums/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount")
+        if (page.status_code == 404):
             if (printfail == 'y'):
                 print(f'{urltry} - Failed')
-        except AttributeError:
+        else:
             print(f'{urltry} - Success!')
             truelink = f'\n https://imgur.com/a/{urltry} is the right url!'
             correcturl = True
             break
 
     elif (mode == 'none'):
-        try:
-            with urllib.request.urlopen("https://api.imgur.com/post/v1/media/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount") as link:
-                data = json.loads(url.read().decode())
-        except urllib.error.HTTPError:
+        page = requests.get("https://api.imgur.com/post/v1/media/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount")
+        if (page.status_code == 404):
             if (printfail == 'y'):
                 print(f'{urltry} - Failed')
-        except AttributeError:
+        else:
             print(f'{urltry} - Success!')
             truelink = f'\n https://imgur.com/{urltry} is the right url!'
             correcturl = True
             break
 
     elif (mode == 'any'):
-        try:
-            with urllib.request.urlopen("https://api.imgur.com/post/v1/posts/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Ctags%2Caccount%2Cadconfig%2Cpromoted") as link:
-                data = json.loads(url.read().decode())
-        except urllib.error.HTTPError:
+        page = requests.get("https://api.imgur.com/post/v1/posts/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Ctags%2Caccount%2Cadconfig%2Cpromoted")
+        if (page.status_code == 404):
             if (printfail == 'y'):
                 print(f'gallery/{urltry} - Failed')
-        except AttributeError:
+        else:
             print(f'gallery/{urltry} - Success!')
             truelink = f'\n https://imgur.com/gallery/{urltry} is the right url!'
             correcturl = True
             break
 
-        try:
-            with urllib.request.urlopen("https://api.imgur.com/post/v1/albums/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount") as link:
-                data = json.loads(url.read().decode())
-        except urllib.error.HTTPError:
+        page("https://api.imgur.com/post/v1/albums/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount")
+        if (page.status_code == 404):
             if (printfail == 'y'):
                 print(f'a/{urltry} - Failed')
-        except AttributeError:
+        else:
             print(f'a/{urltry} - Success!')
             truelink = f'\n https://imgur.com/a/{urltry} is the right url!'
             correcturl = True
             break
 
-        try:
-            with urllib.request.urlopen("https://api.imgur.com/post/v1/media/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount") as link:
-                data = json.loads(url.read().decode())
-        except urllib.error.HTTPError:
+        page = requests.get("https://api.imgur.com/post/v1/media/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount")
+        if (page.status_code == 404):
             if (printfail == 'y'):
                 print(f'/{urltry} - Failed')
-        except AttributeError:
+        else:
             print(f'/{urltry} - Success!')
             truelink = f'\n https://imgur.com/{urltry} is the right url!'
             correcturl = True
