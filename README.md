@@ -10,4 +10,4 @@ Helps with some dumb people that forget that capitalisation matters and with som
 # Legal?
 Yep
 # More info?
-Supports /a/ and /gallery/ links. If it bruteforces for too long, link might not exist.
+Supports /a/, /gallery/ and i.imgur.com links. If it bruteforces for too long, link might not exist. Use "any" mode ONLY when you don't know which mode to use, it's quite slow.
