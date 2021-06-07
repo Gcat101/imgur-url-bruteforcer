@@ -1,5 +1,8 @@
 # imgur-url-bruteforcer
 Bruteforce imgur link capitalisation
+
+![imgur](https://user-images.githubusercontent.com/79367505/121015754-02c59800-c7a4-11eb-8332-6d961f5fc234.png)
+
 # How?
 Python, randomness and urllib.
 # Why?
