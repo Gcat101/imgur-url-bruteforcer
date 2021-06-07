@@ -9,3 +9,5 @@ Python, randomness and urllib.
 Helps with some dumb people that forget that capitalisation matters and with some args.
 # Legal?
 Yep
+# More info?
+Supports /a/ and /gallery/ links. If it bruteforces for too long, link might not exist.
