@@ -46,7 +46,7 @@ for urltry in posurls:
             break
 
     elif (mode == 'a'):
-        page("https://api.imgur.com/post/v1/albums/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount")
+        page = requests.get("https://api.imgur.com/post/v1/albums/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount")
         if (page.status_code == 404):
             if (printfail == 'y'):
                 print(f'{urltry} - Failed')
@@ -78,7 +78,7 @@ for urltry in posurls:
             correcturl = True
             break
 
-        page("https://api.imgur.com/post/v1/albums/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount")
+        page = requests.get("https://api.imgur.com/post/v1/albums/" + urltry + "?client_id=546c25a59c58ad7&include=media%2Cadconfig%2Caccount")
         if (page.status_code == 404):
             if (printfail == 'y'):
                 print(f'a/{urltry} - Failed')
