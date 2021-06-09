@@ -10,6 +10,6 @@ Helps with some dumb people that forget that capitalisation matters and with som
 # Legal?
 Yep
 # Download?
-[Here you go!](https://github.com/Gcat101/imgur-url-bruteforcer/releases/tag/1.3)
+[Here you go!](https://github.com/Gcat101/imgur-url-bruteforcer/releases/tag/1.3.1)
 # More info?
 Supports /a/, /gallery/ and i.imgur.com links. Use "any" mode ONLY when you don't know which mode to use, it's quite slow.
